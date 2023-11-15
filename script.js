@@ -17,17 +17,31 @@ $('input[name="checkbox"]').on('change', function(){
 $(".formcarryForm").submit(function(e){
     e.preventDefault();
     var href = $(this).attr("action");
-    
+    const data = new FormData(this);
+
+    try {
+        for (value of data.values()) {
+            if (value == "")
+                throw new Error("field validtaion error");
+        }
+    }
+    catch (error) {
+        alert("Не все данные заполнены")
+        console.log(error);
+        return;
+    }
+
     $.ajax({
         type: "POST",
         url: href,
-        data: new FormData(this),
+        data: data,
         dataType: "json",
         processData: false,
         contentType: false,
         success: function(response){
           if(response.status == "success"){
               alert("Ваши данные были отправлены");
+              $('.close-popup').click();
           }
           else if(response.code === 422){
             alert("Неправильное заполнение полей");
