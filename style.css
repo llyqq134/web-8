@@ -9,10 +9,6 @@
         text-decoration: none;
     }
 
-    .hidden {
-        display: none;
-    }
-
     .popup-bg {
         position: fixed;
         width: 100%;
@@ -72,11 +68,7 @@
     body a {
         text-decoration: none;
     }
-
-    .hidden {
-        display: none;
-    }
-
+    
     .popup-bg {
         position: fixed;
         width: 100%;
