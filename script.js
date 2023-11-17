@@ -25,6 +25,7 @@ $(".close-popup").click(function (e) {
   $(".popup-bg").fadeOut(600);
   $("html").removeClass("no-scroll");
   history.replaceState({ page: 1 }, "", "index.html");
+  history.back();
 });
 
 $('input[name="checkbox"]').on("change", function (e) {
@@ -76,3 +77,7 @@ $(".formcarryForm").submit(function (e) {
     },
   });
 });
+
+function sleep(millis) {
+  return new Promise(resolve = null, setTimeout(resolve, millis));
+}
